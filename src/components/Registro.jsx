@@ -1,11 +1,12 @@
 import Formulario from "./Formulario";
-
+import SocialBoton from "./SocialBoton";
 
 const Registro = () => {
     
     return (
-        <div className="registro">           
-            <Formulario />            
+        <div className="registro">
+            <SocialBoton />           
+            <Formulario />                       
         </div>
     );
 };
