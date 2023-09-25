@@ -17,7 +17,6 @@ const SocialBoton = ({ iconos }) => {
         </>
     );
 };
-
 // Función auxiliar para obtener el componente de icono correspondiente
 function getIconComponent(iconName) {
     switch (iconName) {

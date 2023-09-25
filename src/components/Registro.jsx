@@ -1,5 +1,6 @@
 import Formulario from "./Formulario";
 import SocialBoton from "./SocialBoton";
+
 const social = [
     {
         icon: "FaFacebook",
@@ -20,7 +21,6 @@ const Registro = () => {
                     <SocialBoton
                         iconos = {social}
                     />   
-            <br></br>
             <Formulario />                       
         </div>
     );
