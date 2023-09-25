@@ -1,5 +1,5 @@
-import Formulario from "./Formulario";
 import SocialBoton from "./SocialBoton";
+import Formulario from "./Formulario";
 
 const social = [
     {
@@ -15,12 +15,11 @@ const social = [
         url: "https://www.linkedin.com/login/es?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin",
     },
 ];
+
 const Registro = () => {
     return (
         <div className="registro">
-                    <SocialBoton
-                        iconos = {social}
-                    />   
+            <SocialBoton iconos = {social} />   
             <Formulario />                       
         </div>
     );

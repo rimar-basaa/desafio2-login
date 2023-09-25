@@ -78,7 +78,7 @@ const Formulario = () => {
 
             <Button 
                 size="sm" 
-                variant="success" 
+                variant="primary" 
                 type="submit" 
                 className="btn mb-3">
                 Registrarse

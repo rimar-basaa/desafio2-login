@@ -17,6 +17,7 @@ const SocialBoton = ({ iconos }) => {
         </>
     );
 };
+
 // Función auxiliar para obtener el componente de icono correspondiente
 function getIconComponent(iconName) {
     switch (iconName) {
@@ -28,8 +29,8 @@ function getIconComponent(iconName) {
             return <FaLinkedin />;
         default:
             return null;
-    }
-}
+    };
+};
 
 SocialBoton.propTypes = {
     iconos: PropTypes.arrayOf(
