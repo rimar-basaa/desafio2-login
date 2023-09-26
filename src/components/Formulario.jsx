@@ -12,39 +12,49 @@ const Formulario = ({ setDataAlerta }) => {
     // ------------------------------------------------- validacion de los input
     const validar = (e) => {
         e.preventDefault();
+        
+        let mensaje = '';
+        let color = '';
 
-        // Validación para nombre: no permitir números
-        if (!/^[A-Za-z\s]+$/.test(nombre)) {
-            setDataAlerta({ color: 'danger', mensaje: 'El nombre no debe contener números' });
-            return;
+        switch (true) {
+            case nombre === '':
+            case correo === '':
+            case pass === '':
+            case repass === '':
+                mensaje = 'Todos los campos son obligatorios';
+                color = 'danger';
+                break;
+            case !/^[A-Za-z\s]+$/.test(nombre):
+                mensaje = 'El nombre no debe contener números ni caracteres';
+                color = 'danger';
+                break;
+            case !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(correo):
+                mensaje = 'El correo no es válido';
+                color = 'danger';
+                break;
+            case !/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,}$/.test(pass):
+                mensaje = 'La contraseña debe tener al menos 8 caracteres, un número, un carácter especial y una mayúscula';
+                color = 'danger';
+                setPass('');
+                setRepass('');
+                break;
+            case pass !== repass:
+                mensaje = 'Contraseñas son distintas';
+                color = 'danger';
+                setPass('');
+                setRepass('');
+                break;
+            default:
+                mensaje = 'Registro exitoso';
+                color = 'success';
+                setNombre('');
+                setCorreo('');
+                setPass('');
+                setRepass('');
+                break;
         }
 
-        // Validación para campos vacíos
-        if (nombre === '' || correo === '' || pass === '' || repass === '') {
-            setDataAlerta({ color: 'danger', mensaje: 'Todos los campos son obligatorios' });
-            return;
-        } 
-        else if (!/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,}$/.test(pass)) {
-            setDataAlerta({
-                color: 'danger',
-                mensaje: 'La contraseña debe tener al menos 8 caracteres, un número, un carácter especial y una mayúscula',
-            });
-            setPass('');
-            setRepass('');
-            return;
-        }
-        else if (pass !== repass) {
-            setDataAlerta({ color: 'danger', mensaje: 'Contraseñas son distintas' });
-            setPass('');
-            setRepass('');
-            return;
-        }  else {
-            setDataAlerta({ color: 'success', mensaje: 'Registro exitoso' });
-            setNombre('');
-            setCorreo('');
-            setPass('');
-            setRepass('');
-        }
+        setDataAlerta({ color, mensaje });
     };
 
     return (
