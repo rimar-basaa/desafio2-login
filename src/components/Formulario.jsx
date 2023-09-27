@@ -32,8 +32,8 @@ const Formulario = ({ setDataAlerta }) => {
                 mensaje = 'El correo no es válido';
                 color = 'danger';
                 break;
-            case !/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,}$/.test(pass):
-                mensaje = 'La contraseña debe tener al menos 8 caracteres, un número, un carácter especial y una mayúscula';
+            case !/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]){8,}$/.test(pass):
+                mensaje = 'La contraseña debe tener al menos 8 caracteres, 1 número, 1 mayúscula, 1 minuscula';
                 color = 'danger';
                 setPass('');
                 setRepass('');
@@ -51,8 +51,8 @@ const Formulario = ({ setDataAlerta }) => {
                 setCorreo('');
                 setPass('');
                 setRepass('');
-                break;
-        }
+            break;
+        };
 
         setDataAlerta({ color, mensaje });
     };
@@ -104,7 +104,6 @@ const Formulario = ({ setDataAlerta }) => {
                 variant="primary" 
                 type="submit" 
                 className="btn mb-3">
-
                 Registrarse
             </Button>
         </Form>
