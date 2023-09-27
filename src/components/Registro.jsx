@@ -1,5 +1,7 @@
+import React, { useState } from "react";
 import SocialBoton from "./SocialBoton";
 import Formulario from "./Formulario";
+import Alerta from "./Alerta";
 
 const social = [
     {
@@ -17,10 +19,13 @@ const social = [
 ];
 
 const Registro = () => {
+    const [dataAlerta, setDataAlerta] = useState({ color: " ", mensaje: " " });
+
     return (
         <div className="registro">
-            <SocialBoton iconos = {social} />   
-            <Formulario />                       
+            <SocialBoton iconos={social} />
+            <Formulario setDataAlerta={setDataAlerta} />
+            <Alerta color={dataAlerta.color} mensaje={dataAlerta.mensaje} />
         </div>
     );
 };
