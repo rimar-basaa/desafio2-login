@@ -97,14 +97,14 @@ const Formulario = ({ setDataAlerta }) => {
                     onChange={(e) => setRepass(e.target.value)}
                     value={repass}
                 />
-            </Form.Group>
+            </Form.Group>            
 
-            <Button
-                size="sm"
-                variant="success"
-                type="submit"
-                className="btn mb-3"
-            >
+            <Button 
+                size="sm" 
+                variant="primary" 
+                type="submit" 
+                className="btn mb-3">
+
                 Registrarse
             </Button>
         </Form>

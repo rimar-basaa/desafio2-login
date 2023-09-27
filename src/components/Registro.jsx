@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Formulario from "./Formulario";
 import SocialBoton from "./SocialBoton";
+import Formulario from "./Formulario";
 import Alerta from "./Alerta";
 
 const social = [
